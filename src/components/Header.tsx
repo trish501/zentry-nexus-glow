@@ -14,20 +14,20 @@ const Header = () => {
           </div>
           
           <nav className="flex items-center gap-8">
-            <a href="#nexus" className="text-foreground hover:text-primary transition-colors">
+            <a href="#nexus" className="text-foreground hover:text-primary transition-colors uppercase">
               Nexus
             </a>
-            <a href="#vault" className="text-foreground hover:text-primary transition-colors">
+            <a href="#vault" className="text-foreground hover:text-primary transition-colors uppercase">
               Vault
             </a>
-            <a href="#prologue" className="text-foreground hover:text-primary transition-colors">
-              Prologue
-            </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <a href="#about" className="text-foreground hover:text-primary transition-colors uppercase">
               About
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
-              Contact
+            <a href="#services" className="text-foreground hover:text-primary transition-colors uppercase">
+              Services
+            </a>
+            <a href="#content" className="text-foreground hover:text-primary transition-colors uppercase">
+              Content
             </a>
           </nav>
         </div>
