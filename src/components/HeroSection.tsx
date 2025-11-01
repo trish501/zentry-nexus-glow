@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 
@@ -11,6 +11,18 @@ const videoSources = [
 const HeroSection = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [scrollBlur, setScrollBlur] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const blurAmount = Math.min(scrollPosition / 100, 10);
+      setScrollBlur(blurAmount);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNextVideo = () => {
     setIsTransitioning(true);
@@ -21,7 +33,10 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section 
+      className="relative h-screen w-full overflow-hidden transition-all duration-300"
+      style={{ filter: `blur(${scrollBlur}px)` }}
+    >
       {/* Video Background */}
       <div
         className={`absolute inset-0 transition-opacity duration-300 ${
@@ -77,26 +92,6 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Video Indicators */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2">
-          {videoSources.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  setCurrentVideoIndex(index);
-                  setIsTransitioning(false);
-                }, 300);
-              }}
-              className={`h-2 w-12 rounded-full transition-all ${
-                index === currentVideoIndex
-                  ? "bg-primary"
-                  : "bg-muted hover:bg-muted-foreground"
-              }`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -129,4 +129,53 @@ All colors MUST be HSL.
   .circular-next-button:hover {
     transform: scale(1.05);
   }
+
+  .typewriter-text {
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--foreground));
+    white-space: nowrap;
+    animation: typing 3s steps(20, end), blink-caret 0.75s step-end infinite;
+    display: inline-block;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from, to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: hsl(var(--foreground));
+    }
+  }
+
+  .color-changing-text {
+    animation: color-change 8s ease-in-out infinite;
+  }
+
+  @keyframes color-change {
+    0% {
+      color: hsl(189, 94%, 43%); /* cyan/blue */
+    }
+    25% {
+      color: hsl(280, 85%, 60%); /* purple */
+    }
+    50% {
+      color: hsl(140, 80%, 50%); /* green */
+    }
+    75% {
+      color: hsl(189, 94%, 43%); /* cyan */
+    }
+    100% {
+      color: hsl(189, 94%, 43%); /* back to blue */
+    }
+  }
 }
