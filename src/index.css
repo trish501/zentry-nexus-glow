@@ -96,4 +96,37 @@ All colors MUST be HSL.
     opacity: 1;
     transform: translateY(0);
   }
+
+  .circular-next-button {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #fbbf24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 4px solid transparent;
+  }
+
+  .circular-next-button::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #fbbf24 0deg, #fbbf24 180deg, transparent 180deg, transparent 360deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .circular-next-button:hover::before {
+    opacity: 1;
+  }
+
+  .circular-next-button:hover {
+    transform: scale(1.05);
+  }
 }

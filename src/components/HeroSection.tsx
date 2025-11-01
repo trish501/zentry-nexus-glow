@@ -42,35 +42,15 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        <h1 className="mb-6 text-6xl md:text-8xl font-bold text-glow animate-float">
-          Enter the{" "}
-          <span className="gaming-gradient bg-clip-text text-transparent">
-            Zentry
-          </span>
-        </h1>
-        <p className="mb-12 max-w-2xl text-xl text-muted-foreground">
-          Where gamers unite, legends are born, and the impossible becomes reality.
-          Join the revolution and experience gaming like never before.
-        </p>
-        
-        <div className="flex gap-4">
-          <Button
-            size="lg"
-            className="gaming-gradient text-lg px-8 py-6 hover:scale-105 transition-transform animate-pulse-glow"
-          >
-            Start Your Journey
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={handleNextVideo}
-            className="glass-morphism text-lg px-8 py-6 hover:scale-105 transition-transform group"
-          >
-            NEXT
-            <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
+        {/* Centered NEXT Button */}
+        <button
+          onClick={handleNextVideo}
+          className="circular-next-button group"
+        >
+          <span className="text-2xl font-bold">NEXT</span>
+          <ChevronRight className="absolute right-8 top-1/2 -translate-y-1/2 w-8 h-8 group-hover:translate-x-1 transition-transform" />
+        </button>
 
         {/* Video Indicators */}
         <div className="absolute bottom-12 flex gap-2">

@@ -1,27 +1,17 @@
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Gamepad2 } from "lucide-react";
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-morphism" : ""
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 glass-morphism">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-glow">ZENTRY</div>
+          <div className="flex items-center gap-4">
+            <Gamepad2 className="w-8 h-8 text-primary text-glow" />
+            <Button variant="ghost" className="text-foreground hover:text-primary">
+              Products
+            </Button>
+          </div>
           
           <nav className="flex items-center gap-8">
             <a href="#nexus" className="text-foreground hover:text-primary transition-colors">
