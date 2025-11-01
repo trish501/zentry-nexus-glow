@@ -42,18 +42,33 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 group/hero">
-        {/* Centered NEXT Button - Only visible on hover */}
-        <button
-          onClick={handleNextVideo}
-          className="circular-next-button opacity-0 group-hover/hero:opacity-100 transition-opacity duration-300"
-        >
-          <span className="text-2xl font-bold">NEXT</span>
-          <ChevronRight className="absolute right-8 top-1/2 -translate-y-1/2 w-8 h-8" />
-        </button>
+      <div className="relative z-10 flex h-full flex-col px-6 pt-32">
+        {/* Left Side Content */}
+        <div className="absolute left-12 top-32">
+          <h2 className="text-8xl font-black text-foreground mb-4">REDEFINE</h2>
+          <p className="text-base font-normal text-muted-foreground max-w-md">
+            Enter the metagame Layer Unleash the Play Economy
+          </p>
+        </div>
+
+        {/* Right Bottom Text */}
+        <div className="absolute right-12 bottom-32">
+          <h2 className="text-8xl font-black text-foreground">Gaming</h2>
+        </div>
+
+        {/* Centered NEXT Button - Only visible on hover of button itself */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <button
+            onClick={handleNextVideo}
+            className="circular-next-button group/button opacity-0 hover:opacity-100 transition-opacity duration-300"
+          >
+            <span className="text-2xl font-bold">NEXT</span>
+            <ChevronRight className="absolute right-8 top-1/2 -translate-y-1/2 w-8 h-8" />
+          </button>
+        </div>
 
         {/* Video Indicators */}
-        <div className="absolute bottom-12 flex gap-2">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2">
           {videoSources.map((_, index) => (
             <button
               key={index}
