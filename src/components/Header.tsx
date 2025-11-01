@@ -8,7 +8,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Gamepad2 className="w-8 h-8 text-primary text-glow" />
-            <Button variant="ghost" className="text-foreground hover:text-primary">
+            <Button variant="outline" className="text-foreground hover:text-primary rounded-full border-2">
               Products
             </Button>
           </div>

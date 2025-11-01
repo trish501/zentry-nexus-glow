@@ -42,14 +42,14 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
-        {/* Centered NEXT Button */}
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 group/hero">
+        {/* Centered NEXT Button - Only visible on hover */}
         <button
           onClick={handleNextVideo}
-          className="circular-next-button group"
+          className="circular-next-button opacity-0 group-hover/hero:opacity-100 transition-opacity duration-300"
         >
           <span className="text-2xl font-bold">NEXT</span>
-          <ChevronRight className="absolute right-8 top-1/2 -translate-y-1/2 w-8 h-8 group-hover:translate-x-1 transition-transform" />
+          <ChevronRight className="absolute right-8 top-1/2 -translate-y-1/2 w-8 h-8" />
         </button>
 
         {/* Video Indicators */}
